@@ -123,6 +123,35 @@
             position: relative;
             overflow: hidden;
         }
+        
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: blur(2px);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
 
         .hero::before {
             content: '';
@@ -633,6 +662,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
             <h1>JammarTech</h1>
             <p class="hero-subtitle">À la rencontre du numérique</p>
@@ -867,7 +899,7 @@
                         <div class="contact-icon">📱</div>
                         <div>
                             <strong>Téléphone</strong><br>
-                            +237 xxx xxx xxx
+                            +237 686 683 888
                         </div>
                     </div>
                 </div>
