@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<script>
+function sendEmail() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    window.location.href = `mailto:jammartechnologie@gmail.com?subject=Message from ${name}&body=${message}%0D%0A%0D%0AReply to: ${email}`;
+    return false;
+}
+</script>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +19,111 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Process Section Styles */
+        .process {
+            padding: 5rem 5%;
+            background: var(--bg-light);
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 40px;
+            height: 100%;
+            width: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            position: relative;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .process-step:hover::after {
+            opacity: 1;
+        }
+
+        .step-icon {
+            position: absolute;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            font-size: 2rem;
+            opacity: 0.1;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .process-step:hover .step-icon {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
         body {
@@ -654,6 +769,8 @@
             <ul class="nav-links">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#process">Processus</a></li>
+                <li><a href="#projects">Projets</a></li>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -836,6 +953,7 @@
                     <div class="step-content">
                         <h3>Analyse</h3>
                         <p>Compréhension approfondie de vos besoins et définition des objectifs.</p>
+                        <div class="step-icon">🔍</div>
                     </div>
                 </div>
                 <div class="process-step fade-in">
@@ -843,6 +961,7 @@
                     <div class="step-content">
                         <h3>Conception</h3>
                         <p>Élaboration de l'architecture technique et du design de l'interface.</p>
+                        <div class="step-icon">✏️</div>
                     </div>
                 </div>
                 <div class="process-step fade-in">
@@ -850,6 +969,7 @@
                     <div class="step-content">
                         <h3>Développement</h3>
                         <p>Implémentation agile avec des livraisons régulières et tests continus.</p>
+                        <div class="step-icon">💻</div>
                     </div>
                 </div>
                 <div class="process-step fade-in">
@@ -857,6 +977,7 @@
                     <div class="step-content">
                         <h3>Déploiement</h3>
                         <p>Mise en production sécurisée et formation des utilisateurs.</p>
+                        <div class="step-icon">🚀</div>
                     </div>
                 </div>
                 <div class="process-step fade-in">
@@ -864,6 +985,7 @@
                     <div class="step-content">
                         <h3>Maintenance</h3>
                         <p>Support continu et évolutions pour garantir la performance.</p>
+                        <div class="step-icon">🛠️</div>
                     </div>
                 </div>
             </div>
